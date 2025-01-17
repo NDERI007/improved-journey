@@ -13,14 +13,13 @@
             if (choice === 0) {
                 console.log("Rock");
             } else if (choice == 1) {
-                console.log("Paper")
+                console.log("Paper");
             }else{
-                console.log("Scissors")
+                console.log("Scissors");
             }
         }
         console.log(getComputerChoice());
         
-
         function getHumanChoice() {
             let userInput = prompt("Enter your choice");
             if (userInput ==null || userInput <= 0) {
@@ -29,7 +28,9 @@
                 console.log(userInput);
             }
         }
-        console.log(getHumanChoice())
+        console.log(getHumanChoice());
+        var humanScore = 0;
+        var computerScore = 0;
     </script>
 </body>
 </html>
