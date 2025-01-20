@@ -10,37 +10,62 @@
         
         function getComputerChoice() {
             const choice = Math.floor(Math.random() * 3);
-            if (choice === 0) {
+            if (choice == 0) {
                 console.log("Rock");
             } else if (choice == 1) {
                 console.log("Paper");
-            }else{
+            }else if (choice == 2) {
                 console.log("Scissors");
             }
         }
-        console.log(getComputerChoice());
         
         function getHumanChoice() {
             let userInput = prompt("Enter your choice");
             userInput = userInput.toUpperCase();
             switch (userInput) {
                 case "ROCK":
+                case "PAPER":
+                case "SCISSORS":
                     userInput = userInput.toLowerCase();
                     break;
             }
-            if (userInput ==null || userInput <= 0) {
+            switch (userInput) {
+                case "rock":
+                    userInput = 0;
+                    break;
+                case "paper":
+                    userInput = 1;
+                    break;
+                case "scissors":
+                    userInput = 2;
+                    break;
+                default:
+                    break;
+            }
+            if (userInput ==null || userInput <= -1) {
                 console.log("invalid");
             } else {
                 console.log(userInput);
             }
         }
-        console.log(getHumanChoice());
+
         var humanScore = 0;
         var computerScore = 0;
         function playRound(humanChoice, computerChoice) {
-            humanChoice = getHumanChoice();
-            computerChoice = getComputerChoice();
-            
+            if (humanChoice == computerChoice) {
+                console.log("you tied");
+            } else if (humanChoice == 0 && computerChoice == 1) {
+                console.log("You win :( Paper beats rock");
+                for ( humanScore = 0;  humanScore <= 0; humanScore ++) {
+                    console.log(humanScore)
+                }
+            }
+        }
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        console.log(playRound());
+        function playGame(playround) {
+            playround = playRound();
         }
     </script>
 </body>
