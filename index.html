@@ -22,6 +22,12 @@
         
         function getHumanChoice() {
             let userInput = prompt("Enter your choice");
+            userInput = userInput.toUpperCase();
+            switch (userInput) {
+                case "ROCK":
+                    userInput = userInput.toLowerCase();
+                    break;
+            }
             if (userInput ==null || userInput <= 0) {
                 console.log("invalid");
             } else {
@@ -31,6 +37,11 @@
         console.log(getHumanChoice());
         var humanScore = 0;
         var computerScore = 0;
+        function playRound(humanChoice, computerChoice) {
+            humanChoice = getHumanChoice();
+            computerChoice = getComputerChoice();
+            
+        }
     </script>
 </body>
 </html>
