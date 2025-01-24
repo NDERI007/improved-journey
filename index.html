@@ -20,7 +20,7 @@
             if ( !userInput || userInput.trim() === "") {
                 throw new Error("Please enter valid response");
             } else {
-                console.log(userInput);
+                return userInput;
             }
             }
         var humanScore = 0;
@@ -28,29 +28,33 @@
         const options =["rock", "paper", "scissors"];
            function getComputerChoice() {
             const choice = options[(Math.floor(Math.random() *3))];
+            console.log(choice);
             return choice;
            }
-           function CheckWinner(playerselection,computerSelection) {
+           let result;
+           function PlayRound(playerselection,computerSelection) {
             if (playerselection === computerSelection) {
-                return "It's a tie";
+                result = "It's a tie";
             } else {
                 switch (playerselection) {
                     case "rock":
-                        return (computerSelection === "scissors") ? "You win" : "You lose";
+                        result = (computerSelection === "scissors") ? "You win" : "You lose";
                         break;
                     case "paper":
-                        return (computerSelection === "rock") ? "You win" : "You lose";
+                        result = (computerSelection === "rock") ? "You win" : "You lose";
                         break;
-                        case "scissors":
-                        return (computerSelection === "paper") ? "You win" : "You lose";
+                    case "scissors":
+                        result = (computerSelection === "paper") ? "You win" : "You lose";
                         break;
+                    default:
+                        result = "Invalid choice";
                 }
             }
+            return result;
            }
-           function playRound(playerselection,computerSelection) {
-            
-           }
-           console.log(getComputerChoice())
+           const playerselection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            console.log(PlayRound(playerselection, computerSelection));
     </script>
 </body>
 </html>
