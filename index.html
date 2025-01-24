@@ -6,19 +6,7 @@
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <script>
-        
-        function getComputerChoice() {
-            const choice = Math.floor(Math.random() * 3);
-            if (choice == 0) {
-                console.log("Rock");
-            } else if (choice == 1) {
-                console.log("Paper");
-            }else if (choice == 2) {
-                console.log("Scissors");
-            }
-        }
-        
+    <script> 
         function getHumanChoice() {
             let userInput = prompt("Enter your choice");
             userInput = userInput.toUpperCase();
@@ -29,44 +17,40 @@
                     userInput = userInput.toLowerCase();
                     break;
             }
-            switch (userInput) {
-                case "rock":
-                    userInput = 0;
-                    break;
-                case "paper":
-                    userInput = 1;
-                    break;
-                case "scissors":
-                    userInput = 2;
-                    break;
-                default:
-                    break;
-            }
-            if (userInput ==null || userInput <= -1) {
-                console.log("invalid");
+            if ( !userInput || userInput.trim() === "") {
+                throw new Error("Please enter valid response");
             } else {
                 console.log(userInput);
             }
-        }
-
+            }
         var humanScore = 0;
         var computerScore = 0;
-        function playRound(humanChoice, computerChoice) {
-            if (humanChoice == computerChoice) {
-                console.log("you tied");
-            } else if (humanChoice == 0 && computerChoice == 1) {
-                console.log("You win :( Paper beats rock");
-                for ( humanScore = 0;  humanScore <= 0; humanScore ++) {
-                    console.log(humanScore)
+        const options =["rock", "paper", "scissors"];
+           function getComputerChoice() {
+            const choice = options[(Math.floor(Math.random() *3))];
+            return choice;
+           }
+           function CheckWinner(playerselection,computerSelection) {
+            if (playerselection === computerSelection) {
+                return "It's a tie";
+            } else {
+                switch (playerselection) {
+                    case "rock":
+                        return (computerSelection === "scissors") ? "You win" : "You lose";
+                        break;
+                    case "paper":
+                        return (computerSelection === "rock") ? "You win" : "You lose";
+                        break;
+                        case "scissors":
+                        return (computerSelection === "paper") ? "You win" : "You lose";
+                        break;
                 }
             }
-        }
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        console.log(playRound());
-        function playGame(playround) {
-            playround = playRound();
-        }
+           }
+           function playRound(playerselection,computerSelection) {
+            
+           }
+           console.log(getComputerChoice())
     </script>
 </body>
 </html>
