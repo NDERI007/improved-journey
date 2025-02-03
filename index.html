@@ -3,76 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="r-p-s.js" defer></script>
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <script> 
-        function getHumanChoice() {
-            let userInput = prompt("Enter your choice");
-            userInput = userInput.toUpperCase();
-            switch (userInput) {
-                case "ROCK":
-                case "PAPER":
-                case "SCISSORS":
-                    userInput = userInput.toLowerCase();
-                    break;
-            }
-            if ( !userInput || userInput.trim() === "") {
-                throw new Error("Please enter valid response");
-            } else {
-                return userInput;
-            }
-            }
-        const options =["rock", "paper", "scissors"];
-           function getComputerChoice() {
-            const choice = options[(Math.floor(Math.random() *3))];
-            console.log(choice);
-            return choice;
-           }
-           let result;
-
-           function PlayRound(playerselection,computerSelection) {
-            if (playerselection === computerSelection) {
-                result = "It's a tie";
-            } else {
-                switch (playerselection) {
-                    case "rock":
-                        result = (computerSelection === "scissors") ? "You win" : "You lose";
-                        break;
-                    case "paper":
-                        result = (computerSelection === "rock") ? "You win" : "You lose";
-                        break;
-                    case "scissors":
-                        result = (computerSelection === "paper") ? "You win" : "You lose";
-                        break;
-                    default:
-                        result = "Invalid choice";
-                }
-            }
-            return result;
-           }
-            function game() {
-                let humanSCore = 0;
-                let computerScore = 0;
-                for (let i = 0; i <= 5; i++) {
-                    const playerselection = getHumanChoice();
-                    const computerSelection = getComputerChoice();
-                    console.log(PlayRound(playerselection, computerSelection));
-                    if (result === "You win") {
-                        humanSCore++;
-                    } else if (result === "You lose") {
-                        computerScore++;
-                    }
-                }
-                if (humanSCore > computerScore) {
-                    console.log(`You win the game ${humanSCore}`);
-                } else if (computerScore > humanSCore) {
-                    console.log(`Autobot wins the game ${computerScore}`);
-                } else{
-                    console.log("we have a tie");
-                }
-            }
-            game();
-    </script>
+    <h1>ROCK-PAPER-SCISSORS CONTEST</h1>
+    <div class="container">
+        <button onclick= "PlayRound('rock')"><i class="fa-solid fa-hand-back-fist" style="color: #B197FC;"></i></button>
+        <button onclick= "PlayRound('paper')" ><i class="fa-regular fa-hand " style="color: #FFD43B;"></i></button>
+        <button onclick= "PlayRound('scissors')"><i class="fa-regular fa-hand-scissors"></i></button>
+    </div>
+    <p id="playerDisplay">player:</p>
+    <p id="compDis">computer:</p>
+    <div id="resultDisplay">Results:</div>
 </body>
 </html>
