@@ -1,9 +1,13 @@
-/* eslint-disable no-undef */
+ 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const playerDisplay = document.querySelector("#playerDisplay");
 const compDisp = document.querySelector("#compDis");
 const resultDisplay =document.querySelector("#resultDisplay");
+const playerScore = document.querySelector("#HUmanScore");
+const OppScore = document.querySelector("#compScore");
    let result;
+   let humanSCore = 0;
+        let computerScore = 0;
    const options =["rock", "paper", "scissors"];
 
    function PlayRound(playerselection) {
@@ -29,17 +33,23 @@ const resultDisplay =document.querySelector("#resultDisplay");
     }
     playerDisplay.textContent = `player: ${playerselection}`;
     compDisp.textContent = `computer: ${ComputerChoice}`;
-    resultDisplay.textContent = `result: ${result}`;
-   }
-    function game() {
-        let humanSCore = 0;
-        let computerScore = 0;
-            if (result === "You win") {
-                humanSCore++;
-            } else if (result === "You lose") {
-                computerScore++;
-            }
-        }
+    resultDisplay.textContent = `${result}`;
+    resultDisplay.classList.remove("greentext", "redtext");
+    switch (result) {
+        case "You win":
+            resultDisplay.classList.add("greentext");
+            humanSCore++;
+            playerScore.textContent = `${humanSCore}`;
+            break;
+        case "You lose":
+            resultDisplay.classList.add("redtext");
+            computerScore++;
+            OppScore.textContent = `${computerScore}`;
+            break;
+        default:
+            break;
+    }
+}
         if (humanSCore > computerScore) {
             console.log(`You win the game ${humanSCore}`);
         } else if (computerScore > humanSCore) {

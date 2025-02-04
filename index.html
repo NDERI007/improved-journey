@@ -11,14 +11,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <h1>ROCK-PAPER-SCISSORS CONTEST</h1>
+    <h1>ROCK-PAPER-SCISSORS CONTEST <i class="fa-solid fa-chess-knight" style="color: #746e87;"></i>
+        <hr>
+    </h1>
     <div class="container">
         <button onclick= "PlayRound('rock')"><i class="fa-solid fa-hand-back-fist" style="color: #B197FC;"></i></button>
         <button onclick= "PlayRound('paper')" ><i class="fa-regular fa-hand " style="color: #FFD43B;"></i></button>
         <button onclick= "PlayRound('scissors')"><i class="fa-regular fa-hand-scissors"></i></button>
     </div>
-    <p id="playerDisplay">player:</p>
-    <p id="compDis">computer:</p>
-    <div id="resultDisplay">Results:</div>
+
+        <div id="playerDisplay">player:</div>
+    <div id="compDis">computer:</div>
+    <div id="resultDisplay"></div>
+    
+    <div class="ScoreDisplay">Playerpoints:
+        <span id="HUmanScore">0</span>
+    </div>
+    <div class="ScoreDisplay">Oppspoints:
+        <span id="compScore">0</span>
+    </div>
 </body>
 </html>
